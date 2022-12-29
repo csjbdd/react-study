@@ -15,6 +15,10 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-web:2.7.5'
+    implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.4'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+    implementation 'org.projectlombok:lombok:1.18.22'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

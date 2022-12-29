@@ -1,20 +1,24 @@
-import React, {useEffect, useState} from 'react';
-import axios from 'axios';
+import './App.css';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import ListBoardComponent from './components/ListBoardComponent';
+import HeaderComponent from './components/HeaderComponent';
+import FooterComponent from './components/FooterComponent';
 
 function App() {
-  const [hello, setHello] = useState('')
-
-  useEffect(() => {
-    axios.get('/api/hello')
-        .then(response => setHello(response.data))
-        .catch(error => console.log(error))
-  }, []);
-
-  return (  
-      <div>
-        백엔드에서 가져온 데이터입니다 : {hello}
-      </div>
-  );
+    return (
+        <div>
+            <Router>             # 3.
+                <HeaderComponent/> # 4.
+                <div className="container">
+                    <Switch>       # 5.
+                        <Route path = "/" exact component = {ListBoardComponent}></Route>
+                        <Route path = "/board" component = {ListBoardComponent}></Route>
+                    </Switch>
+                </div>
+                <FooterComponent/> # 6.
+            </Router>
+        </div>
+    );
 }
 
 export default App;
