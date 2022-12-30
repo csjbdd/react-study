@@ -1,7 +1,12 @@
 package com.example.react.board.repository;
 
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.util.StringUtils;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -10,6 +15,7 @@ import java.util.Date;
 @Table(name = "board")
 @DynamicInsert
 @DynamicUpdate
+@Getter
 public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,4 +44,18 @@ public class Board {
 
     @Column(name = "counts")
     private Integer counts;
+    @Builder
+    public Board(String type, String title, String contents, Integer memberNo, Date createdTime, Date updatedTime, Integer likes, Integer counts) {
+        this.type = type;
+        this.title = title;
+        this.contents = contents;
+        this.memberNo = memberNo;
+        this.createdTime = createdTime;
+        this.updatedTime = updatedTime;
+        this.likes = likes;
+        this.counts = counts;
+    }
+
+    public Board() {
+    }
 }
