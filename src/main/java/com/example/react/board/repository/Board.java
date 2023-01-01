@@ -45,7 +45,8 @@ public class Board {
     @Column(name = "counts")
     private Integer counts;
     @Builder
-    public Board(String type, String title, String contents, Integer memberNo, Date createdTime, Date updatedTime, Integer likes, Integer counts) {
+    public Board(Integer no, String type, String title, String contents, Integer memberNo, Date createdTime, Date updatedTime, Integer likes, Integer counts) {
+        this.no = no;
         this.type = type;
         this.title = title;
         this.contents = contents;
@@ -55,7 +56,6 @@ public class Board {
         this.likes = likes;
         this.counts = counts;
     }
-
     public Board() {
     }
 }
