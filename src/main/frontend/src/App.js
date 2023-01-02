@@ -1,23 +1,30 @@
-import './App.css';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import ListBoardComponent from './components/ListBoardComponent';
-import HeaderComponent from './components/HeaderComponent';
-import FooterComponent from './components/FooterComponent';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import Home from './views/home';
+import About from './views/about';
+import Profile from './views/profile';
+import Axios from './views/axios';
 
 function App() {
     return (
-        <div>
-            <Router>             # 3.
-                <HeaderComponent/> # 4.
-                <div className="container">
-                    <Switch>       # 5.
-                        <Route path = "/" exact component = {ListBoardComponent}></Route>
-                        <Route path = "/board" component = {ListBoardComponent}></Route>
-                    </Switch>
-                </div>
-                <FooterComponent/> # 6.
-            </Router>
-        </div>
+        <BrowserRouter>
+            <nav>
+                <Link to='/'>Home</Link>
+                <br />
+                <Link to='/about'>About</Link>
+                <br />
+                <Link to='/profile'>Profile</Link>
+                <br />
+                <Link to='/axios'>Axios</Link>
+            </nav>
+            <header>----------------------------------</header>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/axios" element={<Axios />} />
+            </Routes>
+            <footer>----------------------------------</footer>
+        </BrowserRouter>
     );
 }
 
