@@ -13,8 +13,6 @@ import java.util.Date;
 
 @Entity
 @Table(name = "board")
-@DynamicInsert
-@DynamicUpdate
 @Getter
 public class Board {
     @Id
